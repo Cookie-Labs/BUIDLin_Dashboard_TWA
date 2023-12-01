@@ -15,7 +15,7 @@ const config: Config = {
   important: 'body', // "#__next",
   theme: {
     screens: {
-      sm: '576px',  // 해당 사이즈 외에서 작동
+      sm: '576px', // 해당 사이즈 외에서 작동
       'sm-max': { max: '576px' }, // 해당 사이즈 내에서 작동
       md: '768px',
       'md-max': { max: '768px' },
@@ -31,6 +31,7 @@ const config: Config = {
       '4xl-max': { max: '1850px' },
     },
     fontSize: {
+      // size와 color와 align은 text
       xs: '0.5rem', // 8px
       sm: '0.75rem', // 12px
       base: '0.875rem', // 14px
@@ -44,6 +45,7 @@ const config: Config = {
       bigTitle: '5rem', // 80px
     },
     fontWeight: {
+      // weight와 family는 font
       thin: '100',
       extraLight: '200',
       light: '300',
@@ -62,6 +64,8 @@ const config: Config = {
     },
     colors: {
       transparent: 'transparent',
+      primary: '#171E26',
+      secondary: '#1F2630',
       black: '#000000',
       white: '#ffffff',
       red: '#FF0000',
