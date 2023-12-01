@@ -59,10 +59,12 @@ export interface ApplyForm {
 export interface EventForm {
   id: string;
   posterImgUrl: string;
+  hostTelegramId: number[];
   host: string;
   hostImgUrl: string;
   title: string;
   description: string;
+  deadline: number;
   award?: AwardForm[];
   telegram?: TelegramForm[];
   country: string;

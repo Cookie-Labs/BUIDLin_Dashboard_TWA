@@ -1,5 +1,367 @@
-[
-    {
-        
-    }
-]
+{
+  "d154475d-63db-43ca-945f-2968561c6077": {
+    "posterImgUrl": "/images/event1Image.png",
+    "hostTelegramId": [1592912022],
+    "host": "Dayk Jang",
+    "hostImgUrl": "/images/event1_hostImage.png",
+    "title": "Global College Startup Impact Hackathon",
+    "description": "The first hackathon hosted by Coconet will focus on 'Ideas Using AI.' We encourage participants to register as soon as possible.",
+    "deadline": 1702306799000,
+    "award": [
+      {
+        "rank": "Grand Prize",
+        "teamCount": "1",
+        "prize": 3000000,
+        "currency": "KRW",
+        "emoji": "🥇"
+      },
+      {
+        "rank": "Excellent Prize",
+        "teamCount": "2",
+        "prize": 1500000,
+        "currency": "KRW",
+        "emoji": "🥈"
+      },
+      {
+        "rank": "Encouragement Prize",
+        "teamCount": "3",
+        "prize": 1000000,
+        "currency": "KRW",
+        "emoji": "🥉"
+      }
+    ],
+    "telegram": [
+      {
+        "name": "IMPACT Hackathon Communication Channel",
+        "link": "https://t.me/addlist/rFgyLFAlfQ8yYTJl",
+        "iconUrl": "/images/event1_telegramIcon.png"
+      }
+    ],
+    "country": "Republic of Korea",
+    "location": {
+      "address": "495, Bokjeong-dong, Sujeong-gu, Seongnam-si, Gyeonggi-do",
+      "latitude": 0,
+      "longitude": 0
+    },
+    "schedule": [
+      {
+        "date": 1703808000000,
+        "programs": [
+          {
+            "time": "13:00 ~ 13:30",
+            "title": "Registration & Booth Networking",
+            "emoji": "✍"
+          },
+          {
+            "time": "13:30 ~ 13:45",
+            "title": "Introduction to GCS Impact Hackathon",
+            "emoji": "🧑‍🏫"
+          },
+          { "time": "13:45 ~ 14:15", "title": "Keynote Speech", "emoji": "📣" },
+          { "time": "14:15 ~ 14:30", "title": "Coffee Break", "emoji": "☕️" },
+          {
+            "time": "14:30 ~ 17:00",
+            "title": "IR Pitching (7-minute presentation, 3-minute Q&A",
+            "emoji": "💁"
+          },
+          {
+            "time": "17:00 ~ 18:30",
+            "title": "Networking Session",
+            "emoji": "👋"
+          },
+          {
+            "time": "18:30 ~ 20:00",
+            "title": "Impact Session & Team Building",
+            "emoji": "👫"
+          },
+          {
+            "time": "20:00 ~",
+            "title": "Hackathon (Developing sustainable business model to tackle common social issues in both Korea and Japan)",
+            "emoji": "🧑‍💻"
+          }
+        ]
+      },
+      {
+        "date": 1703937600000,
+        "programs": [
+          {
+            "time": "~ 16:00",
+            "title": "Hackathon (Developing sustainable business model to tackle common social issues in both Korea and Japan)",
+            "emoji": "🧑‍💻"
+          },
+          {
+            "time": "16:00 ~ 17:00",
+            "title": "GCS -> Kakao Enterprise",
+            "emoji": "🚌"
+          },
+          { "time": "16:00 ~ 17:00", "title": "Coffee Break", "emoji": "☕️" },
+          {
+            "time": "17:00 ~ 18:30",
+            "title": "Hackathon Pitching (5-minute presentation, 2-minute Q&A",
+            "emoji": "💁"
+          },
+          { "time": "18:30 ~ 19:00", "title": "Award Ceremony", "emoji": "🏆" },
+          { "time": "19:00 ~ 20:00", "title": "Culture Night", "emoji": "🍚" }
+        ]
+      }
+    ],
+    "speakers": [
+      {
+        "imgUrl": "/images/event1_speaker1Image.png",
+        "name": "Cheon",
+        "position": "Event coordination"
+      },
+      {
+        "imgUrl": "/images/event1_speaker2Image.png",
+        "name": "Dayk Jang",
+        "position": "Hackathon organizer"
+      },
+      {
+        "imgUrl": "/images/event1_speaker3Image.png",
+        "name": "Choi",
+        "position": "Hackathon organizer"
+      }
+    ],
+    "sponsors": [
+      {
+        "imgUrl": "/images/event1_sponsor1Image.png",
+        "name": "Gachon University"
+      },
+      {
+        "imgUrl": "/images/event1_sponsor2Image.png",
+        "name": "WFUNA"
+      },
+      {
+        "imgUrl": "/images/event1_sponsor3Image.png",
+        "name": "GCS"
+      }
+    ],
+    "applyForm": [
+      {
+        "title": "Global College Startups Impact Hackathon Application Form",
+        "introduction": "Thank you for applying to the Global College Startups Impact Hackathon!\n\nThe Global College Startups Impact Hackathon (GCSIH) is a global program that empowers college entrepreneurs, encouraging them to tackle social issues and develop innovative business models that can also contribute to the achievement of Sustainable Development Goals (SDGs).\n\nApplicants will form international teams and create a sustainable business model to address shared social challenges in both Korea and Japan.\n\nPlease provide answers to all questions in English to qualify for the selection process.\n\nFor more information, please visit our website:",
+        "link": [
+          {
+            "url": "https://www.wfuna.or.kr/2023_impacthackathon_kor",
+            "name": "A Korean-Language Website"
+          },
+          {
+            "url": "https://www.wfuna.or.kr/2023_impacthackathon_eng",
+            "name": "An English-Language Website"
+          }
+        ]
+      },
+      {
+        "title": "General Information",
+        "questions": [
+          {
+            "question": "First name",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Last name",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Team name",
+            "type": "open",
+            "required": false
+          },
+          {
+            "question": "Gender",
+            "type": "binary",
+            "required": true,
+            "options": ["Male", "Female"]
+          },
+          {
+            "question": "College",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Email address",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Nationality",
+            "type": "binary",
+            "required": true,
+            "options": ["Korea", "Japan"]
+          },
+          {
+            "question": "Do you have any dietary restrictions (dietary restrictions include restrictions due to medical or religious purposes as well as restrictions due to personal preference such as a vegetarian diet, gluten-free diet, lactose-free diet, etc.)?",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "What is your preferred clothing size?",
+            "type": "single",
+            "required": true,
+            "options": ["S", "M", "L", "XL", "2XL"]
+          },
+          {
+            "question": "Please provide a short introduction of your company/team",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Are there any tools (MS Office, data analysis, coding, etc.) that you are familiar with?",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "What describes you best? (Multiple answers)",
+            "type": "multiple",
+            "required": true,
+            "options": [
+              "Analyzer",
+              "Collaborator",
+              "Director",
+              "Innovator",
+              "Networker",
+              "Observer",
+              "Risk-taker",
+              "Supporter"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "SDGs background information",
+        "introduction": "SDGs are the blueprint to achieve a better and more sustainable future for all. They address the global challenges we face, including those related to poverty, inequality, climate, environmental degradation, prosperity, and peace and justice. The Goals interconnect and in order to leave no one behind, it is important that we achieve each Goals and target by 2030.\n\nPlease explain which of the 17 Goals you think needs immediate action.(SDGs list, multiple answers)\n\nRefer to the following link:",
+        "link": [
+          {
+            "url": "https://worldtop20.org/global-movement/?gad=1&gclid=EAIaIQobChMIn9eBzMSkggMV8cFMAh3CiQZ0EAAYASAAEgJLu_D_BwE",
+            "name": "Reference Site"
+          }
+        ],
+        "questions": [
+          {
+            "question": "Do you know about SDGs?",
+            "type": "binary",
+            "required": true,
+            "options": ["Yes", "No"]
+          },
+          {
+            "question": "Please explain which of the 17 Goals you think needs immediate action.",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Which of the 17 SDGs do you think applies to your current business model? (Multiple answers)",
+            "type": "multiple",
+            "required": true,
+            "options": [
+              "1. No Poverty",
+              "2. Zero Hunger",
+              "3. Good Health and Well-being",
+              "4. Quality Education",
+              "5. Gender Equality",
+              "6. Clean Water and Sanitation",
+              "7. Affordable and Clean Energy",
+              "8. Decent Work and Economic Growth",
+              "9. Industry, Innovation and Infrastructure",
+              "10. Reduced Inequalities",
+              "11. Sustainable Cities and Communities",
+              "12. Responsible Consumption and Production",
+              "13. Climate Action",
+              "14. Life Below Water",
+              "15. Life on Land",
+              "16. Peace, Justice and Strong Institutions",
+              "17. Partnerships for The Goals"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Hackathon/Startup background information",
+        "questions": [
+          {
+            "question": "Have you done a hackathon before?",
+            "type": "hidden",
+            "required": true,
+            "options": ["Yes", "No"],
+            "hiddenQuestion": [
+              {
+                "question": "What hackathon did you attend?",
+                "type": "open",
+                "required": true
+              }
+            ]
+          },
+          {
+            "question": "What is your expectation of the hackathon?",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "Do you have any experience starting a business?",
+            "type": "hidden",
+            "required": true,
+            "options": ["Yes", "No"],
+            "hiddenQuestion": [
+              {
+                "question": "Please share the details(business model, your role, recent information on the business, etc.)",
+                "type": "open",
+                "required": true
+              },
+              {
+                "question": "Are there any previous awards you received?",
+                "type": "open",
+                "required": true
+              }
+            ]
+          },
+          {
+            "question": "Please identify any social issues in your country/community/school that you would like to solve.",
+            "type": "open",
+            "required": true
+          },
+          {
+            "question": "You have the opportunity to present your existing business model to a panel of VCs and investors on the first day of the program. If you are interested in presenting your model, please specify your: a) team name b) number of team members and c) be sure to submit your IR Pitching Deck and a IR poster for display (both in English) by December 20th  (Note: You can present your BM in either Japanese or Korean— simultaneous translation will be provided).\n\nDo you wish to participate?",
+            "type": "binary",
+            "required": true,
+            "options": ["Yes", "No"]
+          }
+        ]
+      },
+      {
+        "title": "Required Consent",
+        "questions": [
+          {
+            "question": "I agree with the Private Policy Agreement as detailed above",
+            "type": "consent",
+            "required": true,
+            "options": [
+              "This consent form is to come into effect at the point of submission by the applicant, between the applicant, the team members and the hosts of the Global College Startup Impact Hackathon (GCSIH).",
+              "Personal information collected by the hosts of the GCSIH is used for the following purposes.",
+              "1). Collection and Use of Personal Information:\nA. Purpose of information collection and item of use\n① The hosts are to collect the minimum information required for the GCSIH as below.\n② Applicants' personal identity information (name, date of birth, affiliation, email, phone number, etc) and optional information (academic background, professional experience, etc) are collected for the purpose of programme management such as contacting the person in charge, guidance, and supporting the progress of the business.",
+              "2). Information possession and period of usage:\nA. Information written on the application is used for information collection and authentication.\nB. The information is kept from the date of the agreement until the achievement of purpose.\nC. The information is kept and used only by the hosts of the GCSIH. It is not used for purposes other than the business."
+            ]
+          },
+          {
+            "question": "I agree with the Confidentiality Agreement as detailed above",
+            "type": "consent",
+            "required": true,
+            "options": [
+              "This consent form is to come into effect at the point of submission by the applicant, and the hosts of Global College Startup Impact Hackathon.",
+              "1). Every applicant and hosts agrees to:\nA. Not use any of other party's confidential information and intellectual properties for any purpose.\nB. Be restricted from using or disclosing to a third party, its own confidential information.\nC. Not raise any objection for deprivation or punishment related to plagiarizing.\nD. Recognize that civil and criminal liabilities occurred by plagiarizing entirely belong to the applicants. E. Not to violate any law during every session of this event.."
+            ]
+          },
+          {
+            "question": "I agree with the Portrait Rights Agreement as detailed above",
+            "type": "consent",
+            "required": true,
+            "options": [
+              "This consent form is to come into effect at the point of submission by the applicant, between the applicant, team members, and the hosts of Global College Startup Impact Hackathon.",
+              "1). Every applicant and team member agrees to:\nA. Allow the hosts of Global College Startup Impact Hackathon to take photographs or videos of the applicants and team members.\nB. Authorize the use and reproduction of any photos and videos taken by the hosts of Global College Startup Impact Hackathon.\nC. Give unrestricted right and permission to the hosts of Global College Startup Impact Hackathon to copyright and edit, use, re-use, publish and republish photographs and videos of the applicants and team members.\nD. Authorize the production of promotional booths designed to display information from the IR Deck submitted to GCSIH organizers, as well as the contents of this survey."
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
