@@ -1,12 +1,12 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Open_Sans, Roboto_Mono } from 'next/font/google';
+import { Inter, Roboto_Mono } from 'next/font/google';
 
 import RecoilRootProvider from '@/providers/recoilRootProvider';
 import ThemeProvider from '@/providers/themeProvider';
 import CommonLayout from '@/components/common-layout';
 
-const openSans = Open_Sans({
+const inter = Inter({
   // default font
   subsets: ['latin'],
   display: 'swap',
@@ -34,7 +34,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={cls(openSans.className, robotoMono.variable)}>
+    <html lang="en" className={cls(inter.className, robotoMono.variable)}>
       <body>
         <RecoilRootProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
