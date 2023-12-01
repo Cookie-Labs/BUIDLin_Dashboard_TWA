@@ -24,8 +24,8 @@ export const cls = (...classnames: string[]) => {
 };
 
 export const metadata: Metadata = {
-  title: 'Next StartKit',
-  description: 'This is the next start kit',
+  title: 'BUIDLin Dashboard',
+  description: 'Event Platform Dashboard for WEB3',
 };
 
 export default async function RootLayout({
