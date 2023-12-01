@@ -4,7 +4,9 @@ import { Inter, Roboto_Mono } from 'next/font/google';
 
 import RecoilRootProvider from '@/providers/recoilRootProvider';
 import ThemeProvider from '@/providers/themeProvider';
-import CommonLayout from '@/components/common-layout';
+import { TmaProvider } from '@/providers/tmaProvider';
+import TwaLayout from '@/components/twa-layout';
+import TwaComponents from '@/components/twa-component';
 
 const inter = Inter({
   // default font
@@ -38,7 +40,12 @@ export default async function RootLayout({
       <body>
         <RecoilRootProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <CommonLayout>{children}</CommonLayout>
+            <TwaLayout>
+              {/* <TmaProvider> */}
+                {children}
+                {/* <TwaComponents /> */}
+              {/* </TmaProvider> */}
+            </TwaLayout>
           </ThemeProvider>
         </RecoilRootProvider>
       </body>
