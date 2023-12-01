@@ -14,13 +14,19 @@
     "format:fix": "prettier --write --ignore-path .gitignore ."
   },
   "dependencies": {
+    "@tma.js/sdk-react": "^0.5.0",
+    "@aws-sdk/client-dynamodb": "^3.451.0",
+    "@aws-sdk/lib-dynamodb": "^3.451.0",
+    "@aws-sdk/util-dynamodb": "^3.451.0",
+    "date-fns": "^2.30.0",
     "eslint-config-airbnb-typescript": "^17.1.0",
     "next": "^14.0.1",
     "next-themes": "^0.2.1",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.11.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "telegram-login-button": "^0.1.0"
   },
   "devDependencies": {
     "@types/node": "^20",
