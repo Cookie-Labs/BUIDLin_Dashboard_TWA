@@ -5,7 +5,7 @@ export const getUserById = (userId: number): UserForm | undefined => {
   const userData = (allUsers as Record<string, any>)[userId.toString()];
   if (userData) {
     return {
-      userId: userId,
+      id: userId,
       ...userData,
     } as UserForm;
   }

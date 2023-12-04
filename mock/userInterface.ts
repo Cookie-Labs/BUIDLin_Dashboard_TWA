@@ -1,5 +1,5 @@
 export interface UserForm {
-  userId: number;
+  id: number;
   createdEvents: string[];
   participatedEvents: string[];
 }
