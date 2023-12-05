@@ -34,7 +34,7 @@ const ScrollToTopButton = () => {
       onClick={scrollToTop}
       className={`${
         showScrollButton ? 'block' : 'hidden'
-      } fixed bottom-5 right-5 z-20 flex h-24 w-24 cursor-pointer items-center justify-center rounded-circle border border-solid border-gray12 bg-secondary text-title text-gray10 duration-200 hover:scale-110 active:scale-100 dark:bg-secondary`}
+      } fixed bottom-[9.25rem] right-5 z-20 flex h-24 w-24 cursor-pointer items-center justify-center rounded-circle border border-solid border-gray12 bg-secondary text-title text-gray10 duration-200 hover:scale-110 active:scale-100 dark:bg-secondary`}
     >
       <AiFillCaretUp />
     </button>
