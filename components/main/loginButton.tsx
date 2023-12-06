@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useMainButton, useInitData } from '@tma.js/sdk-react';
 
 import { myLoginData, myEventsData } from '@/states/formUserState';
@@ -49,7 +49,7 @@ const LoginButton = () => {
     const onMainButtonClick = () => handleClickTWALoginButton();
 
     mainButton.enable().show();
-    mainButton.setText('Apply');
+    mainButton.setText('Login');
     mainButton.on('click', onMainButtonClick);
 
     return () => {

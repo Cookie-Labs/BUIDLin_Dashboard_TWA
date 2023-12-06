@@ -2,7 +2,7 @@
 
 import { useMemo, type PropsWithChildren } from 'react';
 import { SDKProvider, useSDK } from '@tma.js/sdk-react';
-import LoadingSpinner from '@/components/loadingSpinner';
+import LoadingSpinner from '@/components/loading-spinner';
 
 /**
  * This component is the layer controlling the application display. It displays

@@ -1,7 +1,7 @@
 import Header from '../header';
 import Sidebar from '../sidebar';
 import Footer from '../footer';
-import BottomMenu from '../bottomMenu';
+import BottomMenu from '../bottom-menu';
 // <div>{children}</div> min-h-[calc(100vh-topbarH-footerH)]
 
 export default function CommonLayout({
