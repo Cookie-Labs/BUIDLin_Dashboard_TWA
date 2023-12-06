@@ -2,6 +2,7 @@
 
 import { useMemo, type PropsWithChildren } from 'react';
 import { SDKProvider, useSDK } from '@tma.js/sdk-react';
+import LoadingSpinner from '@/components/loadingSpinner';
 
 /**
  * This component is the layer controlling the application display. It displays
@@ -22,10 +23,8 @@ function DisplayGate({ children }: PropsWithChildren) {
   // even try to do it.
   if (!didInit) {
     return (
-      <div className="flex min-h-[100vh] max-w-[100%] flex-col items-center justify-center gap-[2rem] bg-primary p-[1.6rem] pt-[3.2rem]">
-        <span className="text-center text-[2rem] font-semiBold text-white">
-          SDK init function is not yet called.
-        </span>
+      <div className="relative flex min-h-[100vh] max-w-[100%] flex-col items-center justify-center gap-[2rem] bg-primary p-[1.6rem] pt-[3.2rem]">
+        <LoadingSpinner color="white"/>
       </div>
     );
   }
@@ -53,10 +52,8 @@ function DisplayGate({ children }: PropsWithChildren) {
   // have this check.
   if (components === null) {
     return (
-      <div className="flex min-h-[100vh] max-w-[100%] flex-col items-center justify-center gap-[2rem] bg-primary p-[1.6rem] pt-[3.2rem]">
-        <span className="text-center text-[2rem] font-semiBold text-white">
-          Loading..
-        </span>
+      <div className="relative flex min-h-[100vh] max-w-[100%] flex-col items-center justify-center gap-[2rem] bg-primary p-[1.6rem] pt-[3.2rem]">
+        <LoadingSpinner color="white" />
       </div>
     );
   }
