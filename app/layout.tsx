@@ -41,10 +41,10 @@ export default async function RootLayout({
         <RecoilRootProvider>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             <TwaLayout>
-              {/* <TmaProvider> */}
+              <TmaProvider>
                 {children}
-                {/* <TwaComponents /> */}
-              {/* </TmaProvider> */}
+                <TwaComponents />
+              </TmaProvider>
             </TwaLayout>
           </ThemeProvider>
         </RecoilRootProvider>
