@@ -11,12 +11,14 @@ import { getUserData, createNewUser } from '@/services/dynamoDB';
 
 const LoginButton = () => {
   const router = useRouter();
-  const mainButton = useMainButton();
-  const initData = useInitData();
+
   const setUserData = useSetRecoilState(myLoginData);
   const setUserEventsData = useSetRecoilState(myEventsData);
 
-  const handleClickLoginButton = async () => {
+  const mainButton = useMainButton();
+  const initData = useInitData();
+
+  const handleClickTWALoginButton = async () => {
     try {
       if (initData && initData.user) {
         // Telegram in
@@ -27,14 +29,14 @@ const LoginButton = () => {
           router.push('/created-event');
         } else {
           // First time in
-          await createNewUser({
-            firstUserData: {
-              id: initData.user.id,
-              createdEvents: [],
-              participatedEvents: [],
-              walletAddress: '',
-            },
-          });
+          const initUserData = {
+            id: initData.user.id,
+            createdEvents: [],
+            participatedEvents: [],
+            walletAddress: '',
+          };
+          await createNewUser({ firstUserData: initUserData });
+          setUserEventsData(initUserData);
           router.push('/created-event');
         }
       } // Not Telegram in
@@ -44,7 +46,7 @@ const LoginButton = () => {
   };
 
   useEffect(() => {
-    const onMainButtonClick = () => handleClickLoginButton();
+    const onMainButtonClick = () => handleClickTWALoginButton();
 
     mainButton.enable().show();
     mainButton.setText('Apply');
@@ -62,11 +64,33 @@ const LoginButton = () => {
     }
   }, [initData]);
 
-  // for Browser
+  //   const handleClickBrowserLoginButton = async () => {
+  //     // TODO: mockData임.
+
+  //     let user = await getUserData({ userTelegramId: 1592912022 });
+  //     if (user?.Item !== undefined) {
+  //       // Not the first time in
+  //       setUserEventsData(user?.Item);
+  //       router.push('/created-event');
+  //     } else {
+  //       // First time in
+  //       const initData = {
+  //         id: 1592912022,
+  //         createdEvents: [],
+  //         participatedEvents: [],
+  //         walletAddress: '',
+  //       };
+  //       await createNewUser({ firstUserData: initData });
+  //       setUserEventsData(initData);
+  //       router.push('/created-event');
+  //     }
+  //   };
+
+  //   // for Browser
   //   return (
   //     <button
   //       className="flex h-[6rem] w-full cursor-pointer items-center justify-center rounded-[1.2rem] bg-blue07 duration-200 hover:scale-105 active:scale-100"
-  //       onClick={handleClickLoginButton}
+  //       onClick={handleClickBrowserLoginButton}
   //     >
   //       <span className="text-center font-[semiBold] text-[1.8rem] text-white">
   //         Login

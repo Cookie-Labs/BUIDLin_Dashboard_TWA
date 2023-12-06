@@ -181,7 +181,7 @@ export const getUserData = async({
   const command = new GetCommand({
     TableName: process.env.NEXT_PUBLIC_DYNAMO_USERS_TABLE as string,
     Key: {
-      userTelegramId: userTelegramId,
+      id: userTelegramId,
     },
   });
 
