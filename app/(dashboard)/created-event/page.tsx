@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { myEventsData } from '@/states/formUserState';
+import { myEventsData, myLoginData } from '@/states/formUserState';
 import { useRecoilValue } from 'recoil';
 
 import ScrollToTopButton from '@/components/scroll-to-top-button';
 
 export default function CreatedEventPage() {
   const eventsData = useRecoilValue(myEventsData);
+  const loginData = useRecoilValue(myLoginData);
   const [currentHref, setCurrentHref] = useState('');
 
   useEffect(() => {
@@ -20,6 +21,7 @@ export default function CreatedEventPage() {
     <div className="relative flex flex-col items-center justify-center gap-[3rem]">
       <div>CreatedEventPage</div>
       <div>{JSON.stringify(eventsData, null, 2)}</div>
+      <div>{JSON.stringify(loginData, null, 2)}</div>
       <div>{currentHref}</div>
       <ScrollToTopButton />
     </div>
