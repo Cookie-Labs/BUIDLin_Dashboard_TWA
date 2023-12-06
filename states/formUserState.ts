@@ -6,10 +6,45 @@ export interface FormData {
   [key: string]: any;
 }
 
+export interface User {
+  addedToAttachmentMenu?: boolean;
+  allowsWriteToPm?: boolean;
+  firstName: string;
+  id: number;
+  isBot?: boolean;
+  isPremium?: boolean;
+  lastName?: string;
+  languageCode?: string;
+  photoUrl?: string;
+  username?: string;
+}
+
+export interface MyEventsData {
+  [key: string]: any;
+}
+
 export const myFormData = atom<FormData>({
-  key: 'fromUserState/myFormData',
+  key: 'formUserState/myFormData',
   default: {
     userTelegramId: 0,
     userIsSubmitted: false,
+  },
+});
+
+export const myLoginData = atom<User>({
+  key: 'formUserState/myLoginData',
+  default: {
+    firstName: '',
+    id: 0,
+  },
+});
+
+export const myEventsData = atom<MyEventsData>({
+  key: 'formUserStat/myEventsData',
+  default: {
+    id: 0,
+    createdEvents: [],
+    participatedEvents: [],
+    walletAddress: '',
   },
 });

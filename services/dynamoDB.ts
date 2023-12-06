@@ -10,11 +10,11 @@ import {
 } from '@aws-sdk/lib-dynamodb';
 
 const dbClient = new DynamoDBClient({
+  region: process.env.NEXT_PUBLIC_DYNAMO_REGION as string,
   credentials: {
     accessKeyId: process.env.NEXT_PUBLIC_DYNAMO_KEY_ID as string,
     secretAccessKey: process.env.NEXT_PUBLIC_DYNAMO_SECRET_KEY as string,
   },
-  region: 'ap-northeast-2',
 });
 const docClient = DynamoDBDocumentClient.from(dbClient);
 
@@ -147,6 +147,71 @@ export const getParticipantCount = async ({
     const response = await docClient.send(command);
     console.log(response);
     return response.Count;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+export const createNewEvent = async ({
+  tableName,
+  participantData,
+}: {
+  tableName: string;
+  participantData: any;
+}) => {
+  const command = new PutCommand({
+    TableName: tableName,
+    Item: participantData,
+  });
+
+  try {
+    await docClient.send(command);
+    console.log('Success');
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getUserData = async({
+  userTelegramId
+} : {
+  userTelegramId: number;
+}) => {
+  const command = new GetCommand({
+    TableName: process.env.NEXT_PUBLIC_DYNAMO_USERS_TABLE as string,
+    Key: {
+      userTelegramId: userTelegramId,
+    },
+  });
+
+  try {
+    const response = await docClient.send(command);
+    console.log(response);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const createNewUser = async ({
+  firstUserData,
+}: {
+  firstUserData: {
+    id: number;
+    createdEvents: string[];
+    participatedEvents: string[];
+    walletAddress: string;
+  };
+}) => {
+  const command = new PutCommand({
+    TableName: process.env.NEXT_PUBLIC_DYNAMO_USERS_TABLE as string,
+    Item: firstUserData,
+  });
+
+  try {
+    await docClient.send(command);
+    console.log('Success');
   } catch (error) {
     throw error;
   }
