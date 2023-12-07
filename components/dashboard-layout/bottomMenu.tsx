@@ -17,7 +17,7 @@ const BottomMenu = () => {
     { path: '/sbt', icon: IoIosPerson, label: 'SBT' },
   ];
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => pathname.includes(path);
 
   return (
     <div className="fixed bottom-0 z-30 flex h-bottomMenuH w-full items-center justify-evenly bg-secondary sm:max-w-[576px]">
