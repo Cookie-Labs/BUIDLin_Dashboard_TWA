@@ -1,12 +1,13 @@
 //TODO: https://medium.com/@2018.itsuki/dynamo-db-with-next-js-ea24b0cf78a4
 
-import { DynamoDBClient, ScanCommand } from '@aws-sdk/client-dynamodb';
+import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import {
   DynamoDBDocumentClient,
   GetCommand,
   PutCommand,
   DeleteCommand,
   UpdateCommand,
+  ScanCommand
 } from '@aws-sdk/lib-dynamodb';
 
 const dbClient = new DynamoDBClient({
@@ -237,3 +238,21 @@ export const getEventData = async ({
     throw error;
   }
 };
+
+export const getEventParticipantsData = async ({
+  eventId,
+}: {
+  eventId: string;
+}) => {
+  const command = new ScanCommand({
+    TableName: eventId as string,
+  })
+
+  try {
+    const response = await docClient.send(command);
+    console.log(response);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+}
