@@ -1,3 +1,5 @@
+// ref. https://github.com/Telegram-Mini-Apps/tma.js/blob/master/apps/docs/packages/typescript/tma-js-sdk-react.md
+
 'use client';
 
 import { useMemo, type PropsWithChildren } from 'react';
