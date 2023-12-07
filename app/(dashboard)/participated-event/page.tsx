@@ -4,8 +4,9 @@ export default function ParticipatedEvent() {
   return (
     <div className="relative flex flex-col items-start justify-center gap-[3rem]">
       <span className="text-[2rem] font-semiBold text-white">
-        My Participated Events
+        Participated Events
       </span>
+      <span>Coming Soon...</span>
       <ScrollToTopButton />
     </div>
   );
