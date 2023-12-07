@@ -34,6 +34,11 @@ export default function CreatedEventPage() {
                 posterImgUrl: eachEventData.Item.posterImgUrl,
                 title: eachEventData.Item.title,
                 deadline: eachEventData.Item.deadline,
+                startDate: eachEventData.Item.schedule[0].date,
+                endDate:
+                  eachEventData.Item.schedule[
+                    eachEventData.Item.schedule.length - 1
+                  ].date,
               };
             }
           }),
@@ -44,9 +49,7 @@ export default function CreatedEventPage() {
         const past: Event[] = [];
 
         myEvents.forEach((event) => {
-          console.log(event.deadline);
-          console.log(nowTimestamp);
-          if (event.deadline > nowTimestamp) {
+          if (event.endDate > nowTimestamp) {
             upcoming.push(event);
           } else {
             past.push(event);
@@ -131,7 +134,7 @@ export default function CreatedEventPage() {
       {tab === 'Upcoming' &&
         (upcomingEvents.length !== 0 ? (
           upcomingEvents.map((event: Event) => {
-            return <Card key={event.id} eventItem={event} />;
+            return <Card key={event.id} eventItem={event} type={tab} />;
           })
         ) : (
           <div className="flex h-auto w-full flex-col items-center justify-center gap-[1rem]">
@@ -146,7 +149,7 @@ export default function CreatedEventPage() {
       {tab === 'Past' &&
         (pastEvents.length !== 0 ? (
           pastEvents.map((event: Event) => {
-            return <Card key={event.id} eventItem={event} />;
+            return <Card key={event.id} eventItem={event} type={tab} />;
           })
         ) : (
           <div className="flex h-auto w-full flex-col items-center justify-center gap-[1rem]">

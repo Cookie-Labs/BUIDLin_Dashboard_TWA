@@ -3,4 +3,6 @@ export interface Event {
   posterImgUrl: string;
   title: string;
   deadline: number;
+  startDate: number;
+  endDate: number;
 }
