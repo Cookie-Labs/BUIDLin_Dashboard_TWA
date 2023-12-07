@@ -7,7 +7,7 @@ export default function Layout({
 }) {
   return (
     <DashboardLayout>
-      <div className="relative z-0 mb-bottomMenuH flex min-h-[calc(100vh-8rem)] max-w-[100%] flex-col items-center justify-start bg-primary p-[1.6rem] pt-[3.2rem]">
+      <div className="relative z-0 mb-bottomMenuH min-h-[calc(100vh-8rem)] max-w-[100%] bg-primary p-[1.6rem] pt-[3.2rem]">
         {children}
       </div>
     </DashboardLayout>

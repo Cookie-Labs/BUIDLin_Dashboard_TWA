@@ -216,3 +216,24 @@ export const createNewUser = async ({
     throw error;
   }
 };
+
+export const getEventData = async ({
+  eventId,
+}: {
+  eventId: string;
+}) => {
+  const command = new GetCommand({
+    TableName: process.env.NEXT_PUBLIC_DYNAMO_ALL_EVENTS_TABLE as string,
+    Key: {
+      id: eventId,
+    },
+  });
+
+  try {
+    const response = await docClient.send(command);
+    console.log(response);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};

@@ -2,8 +2,10 @@ import ScrollToTopButton from '@/components/scroll-to-top-button';
 
 export default function ParticipatedEvent() {
   return (
-    <div className="relative">
-      <div>ParticipatedEvent</div>
+    <div className="relative flex flex-col items-start justify-center gap-[3rem]">
+      <span className="text-[2rem] font-semiBold text-white">
+        My Participated Events
+      </span>
       <ScrollToTopButton />
     </div>
   );
