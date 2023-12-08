@@ -128,7 +128,7 @@ export default function ViewParticipantsPage({
             </span>
           </button>
         </div>
-        <Table questions={eventQuestion} data={participants} />
+        <Table questions={eventQuestion} participants={participants} />
         <ScrollToTopButton />
       </div>
     );
