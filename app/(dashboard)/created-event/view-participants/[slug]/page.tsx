@@ -47,13 +47,8 @@ export default function ViewParticipantsPage({
   const downloadCSV = (csvData: string, filename: string) => {
     const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
-    // link.href = URL.createObjectURL(blob);
-    link.href = `{javascript:Telegram.WebApp.openLink('${URL.createObjectURL(
-      blob,
-    )}');}`;
+    link.href = URL.createObjectURL(blob);
     link.setAttribute('download', filename);
-
-    console.log(link);
 
     document.body.appendChild(link);
     link.click();
@@ -120,10 +115,17 @@ export default function ViewParticipantsPage({
           </span>
           <button
             onClick={handleDownload}
-            className="flex cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] bg-blue07 px-[1.5rem] py-[1rem] text-[1.2rem] font-semiBold text-gray06 duration-200 hover:scale-105 hover:text-white active:scale-100"
+            className="flex cursor-pointer flex-col items-center justify-center gap-[1rem] rounded-[0.5rem] bg-blue07 px-[1.5rem] py-[1rem] duration-200 hover:scale-105 active:scale-100 text-gray06 hover:text-white"
           >
-            <FaDownload />
-            Export CSV File
+            <div className="flex items-center justify-center gap-[1rem]">
+              <FaDownload />
+              <span className="text-[1.2rem] font-semiBold">
+                Export CSV File
+              </span>
+            </div>
+            <span className="text-[0.8rem] font-thin">
+              ⚠️ It works only in the desktop app.
+            </span>
           </button>
         </div>
         <Table questions={eventQuestion} data={participants} />
