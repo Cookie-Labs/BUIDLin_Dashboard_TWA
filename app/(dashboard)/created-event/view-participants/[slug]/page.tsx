@@ -3,7 +3,10 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getEventParticipantsData, getEventData } from '@/services/dynamoDB';
+import { FaDownload } from 'react-icons/fa';
 
+import LoadingSpinner from '@/components/loading-spinner';
+import ScrollToTopButton from '@/components/scroll-to-top-button';
 import { myLoginData } from '@/states/formUserState';
 import { useRecoilValue } from 'recoil';
 import Table from '@/components/view-participants/table';
@@ -18,6 +21,44 @@ export default function ViewParticipantsPage({
   const [participants, setParticipants] = useState<any[]>([]);
   const [eventQuestion, setEventQuestion] = useState<string[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(true);
+
+  const escapeCSV = (str: string) => {
+    if (str.includes(',') || str.includes('\n') || str.includes('"')) {
+      return `"${str.replace(/"/g, '""')}"`;
+    }
+    return str;
+  };
+
+  const convertToCSV = (questions: string[], data: any[]) => {
+    const headers = ['#'].concat(questions.map((q) => escapeCSV(q))).join(',');
+    const rows = data
+      .map((row, index) =>
+        [(index + 1).toString()]
+          .concat(
+            questions.map((q) => escapeCSV(row[q] ? row[q].toString() : '')),
+          )
+          .join(','),
+      )
+      .join('\n');
+
+    return headers + '\n' + rows;
+  };
+
+  // CSV 파일 다운로드
+  const downloadCSV = (csvData: string, filename: string) => {
+    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.setAttribute('download', filename);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleDownload = () => {
+    const csvData = convertToCSV(eventQuestion, participants);
+    downloadCSV(csvData, 'participants-data.csv');
+  };
 
   useEffect(() => {
     const getParticipants = async () => {
@@ -36,8 +77,10 @@ export default function ViewParticipantsPage({
             const allQuestions = slicedApplyForm
               .map((qs: any) => qs.questions.map((q: any) => q.question))
               .flat();
-            allQuestions.unshift('userTelegramId', 'userIsSubmitted');
-            setParticipants(eventParticipantsData.Items);
+            const submittedParticipants = eventParticipantsData.Items.filter(
+              (participant) => participant.userIsSubmitted === true,
+            );
+            setParticipants(submittedParticipants);
             setEventQuestion(allQuestions);
             setIsLoading(false);
           } else {
@@ -56,11 +99,28 @@ export default function ViewParticipantsPage({
   }, [params.slug]);
 
   if (isLoading) {
-    <div>isLoading...</div>
+    return (
+      <div className="flex h-full w-full items-center justify-center">
+        <LoadingSpinner color="white" />
+      </div>
+    );
   } else {
     return (
-      <div>
+      <div className="relative">
+        <div className="mb-[3rem] flex h-auto w-full items-center justify-between">
+          <span className="text-[2rem] font-semiBold text-white">
+            Participants
+          </span>
+          <button
+            onClick={handleDownload}
+            className="flex cursor-pointer items-center justify-center gap-[1rem] rounded-[0.5rem] bg-blue07 px-[1.5rem] py-[1rem] text-[1.2rem] font-semiBold text-gray06 duration-200 hover:scale-105 hover:text-white active:scale-100"
+          >
+            <FaDownload />
+            Export CSV File
+          </button>
+        </div>
         <Table questions={eventQuestion} data={participants} />
+        <ScrollToTopButton />
       </div>
     );
   }

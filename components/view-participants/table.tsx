@@ -9,35 +9,49 @@ interface TableProps {
 
 const Table: React.FC<TableProps> = ({ questions, data }) => {
   return (
-    <div className="overflow-x-auto">
-      <table className="border-slate-500 min-w-full table-auto border-collapse border">
-        <thead>
-          <tr>
-            <th className="border border-solid px-4 py-2">Index</th>
-            {questions.map((question, index) => (
-              <th key={index} className="border border-solid px-4 py-2">
-                {question}
+    <>
+      <div className="overflow-x-auto">
+        <table className="min-w-full table-auto overflow-hidden border border-[0.5rem] border-solid border-gray10">
+          <thead>
+            <tr>
+              <th className="border border-[0.3rem] border-solid border-gray10 bg-secondary px-4 py-2 text-[1.2rem] font-bold text-white">
+                #
               </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((row, rowIndex) => (
-            <tr key={rowIndex} className="even:bg-gray10">
-              <td className="border border-solid px-4 py-2">{rowIndex + 1}</td>
-              {questions.map((question, questionIndex) => (
-                <td
-                  key={questionIndex}
-                  className="border border-solid px-4 py-2"
+              {questions.map((question, index) => (
+                <th
+                  key={index}
+                  className="whitespace-pre-line border border-[0.3rem] border-solid border-gray10 bg-secondary px-4 py-2 text-[1.2rem] font-bold leading-5 text-white"
                 >
-                  {JSON.stringify(row[question])}
-                </td>
+                  {question}
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {data.map((row, rowIndex) => (
+              <tr
+                key={rowIndex}
+                className="border border-[0.3rem] border-solid border-gray10 odd:bg-gray14 even:bg-gray12"
+              >
+                <td className="border border-[0.3rem] border-solid border-gray10 bg-secondary px-4 py-2 text-[1.1rem] font-bold">
+                  {rowIndex + 1}
+                </td>
+                {questions.map((question, questionIndex) => (
+                  <td
+                    key={questionIndex}
+                    className="whitespace-pre-line border border-solid border-gray10 px-4 py-2 text-[1.1rem] font-regular leading-5"
+                  >
+                    {Array.isArray(row[question])
+                      ? row[question].join('\n\n')
+                      : row[question]}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </>
   );
 };
 
