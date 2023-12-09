@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
@@ -10,6 +13,12 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
   const router = useRouter();
   const popup = usePopup();
   const qrScanner = useQRScanner();
+
+  useEffect(() => {
+    if (!popup.isOpened) {
+      qrScanner.close();
+    }
+  }, [popup.isOpened]);
 
   return (
     <div className="grid min-h-[17rem] w-full grid-cols-2 items-center justify-center gap-[1rem] rounded-[2rem] bg-primary px-[1.5rem] py-[1rem] shadow-[rgba(125,_100,_255,_0.5)_0_8px_20px_0px]">
@@ -46,7 +55,9 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
       </div>
       <div
         className={`grid h-auto w-full items-center justify-center ${
-          type === 'Upcoming' ? 'grid-rows-3 gap-[2rem]' : 'grid-rows-2 gap-[3.3rem]'
+          type === 'Upcoming'
+            ? 'grid-rows-3 gap-[2rem]'
+            : 'grid-rows-2 gap-[3.3rem]'
         }`}
       >
         <button
@@ -75,18 +86,23 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
               Manage Event
             </button>
             <button
-              className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
+              className="flex cursor-pointer flex-col items-center justify-center gap-[0.5rem] rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
               onClick={async () => {
-                return qrScanner.open('Scan the qrcode').then((content) => {
+                return qrScanner.open('Scan the QR code').then((content) => {
                   popup.open({
                     title: 'Scan Success',
                     message: content as string,
-                    buttons: [{ id: 'closePopup', type: 'close' }],
+                    buttons: [
+                      { id: 'closeScanner', type: 'close'},
+                    ],
                   });
                 });
               }}
             >
               Ticket Scan
+              <span className="text-[0.8rem] font-extraLight text-gray06">
+                ⚠️ It works only in the Mobile App.
+              </span>
             </button>
           </>
         ) : (
