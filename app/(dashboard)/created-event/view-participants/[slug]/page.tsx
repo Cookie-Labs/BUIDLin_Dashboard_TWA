@@ -115,7 +115,7 @@ export default function ViewParticipantsPage({
           </span>
           <button
             onClick={handleDownload}
-            className="flex cursor-pointer flex-col items-center justify-center gap-[1rem] rounded-[0.5rem] bg-blue07 px-[1.5rem] py-[1rem] duration-200 hover:scale-105 active:scale-100 text-gray06 hover:text-white"
+            className="flex cursor-pointer flex-col items-center justify-center gap-[1rem] rounded-[0.5rem] bg-blue07 px-[1.5rem] py-[1rem] text-gray06 duration-200 hover:scale-105 hover:text-white active:scale-100"
           >
             <div className="flex items-center justify-center gap-[1rem]">
               <FaDownload />
@@ -123,8 +123,8 @@ export default function ViewParticipantsPage({
                 Export CSV File
               </span>
             </div>
-            <span className="text-[0.8rem] font-thin">
-              ⚠️ It works only in the desktop app.
+            <span className="text-[0.8rem] font-extraLight">
+              ⚠️ It works only in the Windows App.
             </span>
           </button>
         </div>
