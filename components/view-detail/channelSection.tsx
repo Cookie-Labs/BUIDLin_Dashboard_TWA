@@ -1,7 +1,7 @@
 'use client';
 
 import { BiRightArrowAlt } from 'react-icons/bi';
-import { TelegramForm } from '../event-interface';
+import { TelegramForm } from '../participated-event/eventInterface';
 import Image from 'next/image';
 
 const ChannelSection = ({ telegram }: { telegram: TelegramForm[] }) => {

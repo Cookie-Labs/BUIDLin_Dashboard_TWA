@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SponsorsForm } from '../event-interface';
+import { SponsorsForm } from '../participated-event/eventInterface';
 
 const SponsorSection = ({ sponsors }: { sponsors: SponsorsForm[] }) => {
   return (

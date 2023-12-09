@@ -1,5 +1,5 @@
 import { addCommasToNumber } from '@/utils/parser';
-import { AwardForm } from '../event-interface';
+import { AwardForm } from '../participated-event/eventInterface';
 
 const AwardSection = ({ award }: { award: AwardForm[] }) => {
   const totalPrize = award.reduce((acc, item) => {

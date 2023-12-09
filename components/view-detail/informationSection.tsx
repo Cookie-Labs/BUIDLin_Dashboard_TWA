@@ -1,5 +1,5 @@
 import { formatSchedule } from '@/utils/parser';
-import { LocationForm } from '../event-interface';
+import { LocationForm } from '../participated-event/eventInterface';
 
 const InformationSection = ({
   country,

@@ -1,5 +1,5 @@
 import { format } from 'date-fns';
-import { ScheduleForm } from '../event-interface';
+import { ScheduleForm } from '../participated-event/eventInterface';
 
 const ProgramSection = ({ schedule }: { schedule: ScheduleForm[] }) => {
   return (

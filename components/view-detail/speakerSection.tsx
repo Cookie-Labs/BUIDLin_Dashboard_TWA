@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { SpeakersForm } from '../event-interface';
+import { SpeakersForm } from '../participated-event/eventInterface';
 
 const SpeakerSection = ({ speakers }: { speakers: SpeakersForm[] }) => {
   return (
