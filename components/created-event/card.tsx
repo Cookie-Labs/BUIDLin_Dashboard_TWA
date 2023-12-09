@@ -4,11 +4,12 @@ import { useRouter } from 'next/navigation';
 import { Event } from './eventInterface';
 import { format } from 'date-fns';
 
-import { usePopup } from '@tma.js/sdk-react';
+import { usePopup, useQRScanner } from '@tma.js/sdk-react';
 
 const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
   const router = useRouter();
   const popup = usePopup();
+  const qrScanner = useQRScanner();
 
   return (
     <div className="grid min-h-[17rem] w-full grid-cols-2 items-center justify-center gap-[1rem] rounded-[2rem] bg-primary px-[1.5rem] py-[1rem] shadow-[rgba(125,_100,_255,_0.5)_0_8px_20px_0px]">
@@ -19,8 +20,8 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
             alt="event image url"
             priority
             className="h-auto w-full rounded-[1.6rem] object-fill"
-            width={1000}
-            height={1000}
+            width={1600}
+            height={900}
           />
         </div>
         <div className="items-between flex h-auto w-full justify-start gap-[1rem]">
@@ -43,7 +44,11 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
           </span>
         </div>
       </div>
-      <div className="grid h-auto w-full grid-rows-2 items-center justify-center gap-[3.3rem]">
+      <div
+        className={`grid h-auto w-full items-center justify-center ${
+          type === 'Upcoming' ? 'grid-rows-3 gap-[2rem]' : 'grid-rows-2 gap-[3.3rem]'
+        }`}
+      >
         <button
           className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
           onClick={() => {
@@ -55,19 +60,35 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
           View Participants
         </button>
         {type === 'Upcoming' ? (
-          <button
-            className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
-            onClick={() => {
-              return popup.open({
-                title: 'Coming Soon',
-                message:
-                  'If you wish to modify an event, please send an email to jack@cookielabs.me.',
-                buttons: [{ id: 'closePopup', type: 'close' }],
-              });
-            }}
-          >
-            Manage Event
-          </button>
+          <>
+            <button
+              className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
+              onClick={() => {
+                return popup.open({
+                  title: 'Coming Soon',
+                  message:
+                    'If you wish to modify an event, please send an email to jack@cookielabs.me.',
+                  buttons: [{ id: 'closePopup', type: 'close' }],
+                });
+              }}
+            >
+              Manage Event
+            </button>
+            <button
+              className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
+              onClick={async () => {
+                return qrScanner.open('Scan the qrcode').then((content) => {
+                  popup.open({
+                    title: 'Scan Success',
+                    message: content as string,
+                    buttons: [{ id: 'closePopup', type: 'close' }],
+                  });
+                });
+              }}
+            >
+              Ticket Scan
+            </button>
+          </>
         ) : (
           <div className="px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-[#FFF200]">
             📣 Event Ended
