@@ -1,12 +1,3 @@
-export interface Event {
-  id: string;
-  posterImgUrl: string;
-  title: string;
-  deadline: number;
-  startDate: number;
-  endDate: number;
-}
-
 export interface AwardForm {
   rank: string;
   teamCount: number;
@@ -65,6 +56,14 @@ export interface ApplyForm {
   questions?: QuestionForm[];
 }
 
+export interface TicketForm {
+  id: string;
+  title: string;
+  description: string;
+  price: number;
+  currency: string;
+}
+
 export interface EventForm {
   id: string;
   posterImgUrl: string;
@@ -82,4 +81,5 @@ export interface EventForm {
   speakers?: SpeakersForm[];
   sponsors?: SponsorsForm[];
   applyForm?: ApplyForm[];
+  tickets?: TicketForm[];
 }

@@ -32,7 +32,7 @@ export const TelegramOAuth = ({
   allChecked: boolean;
   setAllChecked: React.Dispatch<React.SetStateAction<boolean>>;
 }) => {
-  // const initData = useInitData();
+  const initData = useInitData();
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [userData, setUserData] = useState<User>({
     firstName: '',
@@ -48,11 +48,11 @@ export const TelegramOAuth = ({
   });
   const setFormData = useSetRecoilState(myFormData);
 
-  // useEffect(() => {
-  //   if (initData && initData.user) {
-  //     setUserData(initData.user);
-  //   }
-  // }, [initData]);
+  useEffect(() => {
+    if (initData && initData.user) {
+      setUserData(initData.user);
+    }
+  }, [initData]);
 
   const handleTelegramResponse = async (response: TelegramUser) => {
     try {
@@ -69,6 +69,7 @@ export const TelegramOAuth = ({
           participantData: {
             userTelegramId: response.id,
             userIsSubmitted: false,
+            userIsParticipated: false,
           },
         });
         setIsSubmitted(false);
@@ -76,6 +77,7 @@ export const TelegramOAuth = ({
         setFormData({
           userTelegramId: response.id,
           userIsSubmitted: false,
+          userIsParticipated: false,
         });
       } else {
         if (user?.Item.userIsSubmitted) {
@@ -84,6 +86,7 @@ export const TelegramOAuth = ({
           setFormData({
             userTelegramId: 0,
             userIsSubmitted: false,
+            userIsParticipated: false,
           });
         } else {
           setIsSubmitted(false);

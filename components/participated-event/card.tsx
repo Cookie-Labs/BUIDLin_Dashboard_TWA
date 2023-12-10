@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Event } from './eventInterface';
+import { Event } from '../event-interface/cardInterface';
 import { format } from 'date-fns';
 
 import { usePopup } from '@tma.js/sdk-react';

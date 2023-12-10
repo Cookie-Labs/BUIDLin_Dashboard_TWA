@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { Event } from './eventInterface';
+import { Event } from '../event-interface/cardInterface';
 import { format } from 'date-fns';
 
 import { usePopup, useQRScanner } from '@tma.js/sdk-react';
@@ -46,12 +46,14 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
             {format(eventItem.endDate, 'yy. MM. dd')}
           </span>
         </div>
-        <div className="flex h-auto w-full items-center justify-start gap-[1rem]">
-          <span className="text-[1.5rem]">⏰</span>
-          <span className="text-[1.2rem] font-regular text-red">
-            {format(eventItem.deadline, 'yy. MM. dd')}
-          </span>
-        </div>
+        {type === 'Upcoming' && (
+          <div className="flex h-auto w-full items-center justify-start gap-[1rem]">
+            <span className="text-[1.5rem]">⏰</span>
+            <span className="text-[1.2rem] font-regular text-red">
+              {format(eventItem.deadline, 'yy. MM. dd')}
+            </span>
+          </div>
+        )}
       </div>
       <div
         className={`grid h-auto w-full items-center justify-center ${

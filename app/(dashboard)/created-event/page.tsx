@@ -6,7 +6,7 @@ import { useRecoilValue } from 'recoil';
 
 import { getEventData } from '@/services/dynamoDB';
 
-import { Event } from '@/components/created-event/eventInterface';
+import { Event } from '@/components/event-interface/cardInterface';
 import Card from '@/components/created-event/card';
 import ScrollToTopButton from '@/components/scroll-to-top-button';
 

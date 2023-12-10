@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { getEventData } from '@/services/dynamoDB';
-import { EventForm } from '@/components/participated-event/eventInterface';
+import { EventForm } from '@/components/event-interface/eventInterface';
 
 import PosterSection from '@/components/view-detail/posterSection';
 import TitleSection from '@/components/view-detail/titleSection';
