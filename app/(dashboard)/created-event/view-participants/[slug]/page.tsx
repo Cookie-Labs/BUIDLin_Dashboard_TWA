@@ -79,9 +79,12 @@ export default function ViewParticipantsPage({
             const allQuestions = slicedApplyForm
               .map((qs: any) => qs.questions.map((q: any) => q.question))
               .flat();
+            allQuestions.unshift('userIsParticipated');
+
             const submittedParticipants = eventParticipantsData.Items.filter(
               (participant) => participant.userIsSubmitted === true,
             );
+
             setParticipants(submittedParticipants);
             setEventQuestion(allQuestions);
             setIsLoading(false);

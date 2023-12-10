@@ -28,10 +28,7 @@ const Table: React.FC<TableProps> = ({ questions, participants }) => {
         </thead>
         <tbody>
           {participants.map((row, rowIndex) => (
-            <tr
-              key={rowIndex}
-              className="odd:bg-gray12 even:bg-gray14"
-            >
+            <tr key={rowIndex} className="odd:bg-gray12 even:bg-gray14">
               <td className="border border-[0.2rem] border-solid border-gray10 bg-secondary px-4 py-2 text-center text-[1.1rem] font-bold">
                 {rowIndex + 1}
               </td>
@@ -40,9 +37,17 @@ const Table: React.FC<TableProps> = ({ questions, participants }) => {
                   key={questionIndex}
                   className="whitespace-nowrap border border-[0.1rem] border-solid border-gray10 px-4 py-2 text-left text-[1.1rem] font-regular leading-5"
                 >
-                  {Array.isArray(row[question])
-                    ? row[question].join('   ||   ')
-                    : row[question]}
+                  {questionIndex === 0 ? (
+                    row[question] ? (
+                      <span className="text-attendanceAttend">Participated</span>
+                    ) : (
+                      <span className="text-attendanceAbsent">Not yet</span>
+                    )
+                  ) : Array.isArray(row[question]) ? (
+                    row[question].join('   ||   ')
+                  ) : (
+                    row[question]
+                  )}
                 </td>
               ))}
             </tr>
