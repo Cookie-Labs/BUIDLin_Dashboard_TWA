@@ -3,7 +3,7 @@ import { AwardForm } from '../participated-event/eventInterface';
 
 const AwardSection = ({ award }: { award: AwardForm[] }) => {
   const totalPrize = award.reduce((acc, item) => {
-    return acc + parseInt(item.teamCount) * item.prize;
+    return acc + item.teamCount * item.prize;
   }, 0);
 
   return (
