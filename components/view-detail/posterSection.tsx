@@ -11,7 +11,7 @@ const PosterSection = ({posterImgUrl} : {posterImgUrl: string}) => {
           width: '100%',
           height: 'auto',
           borderRadius: '1.6rem',
-          objectFit: 'cover',
+          objectFit: 'contain',
         }}
         width={1000}
         height={1000}

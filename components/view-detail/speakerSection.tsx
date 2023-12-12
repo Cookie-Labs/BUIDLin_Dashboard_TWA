@@ -5,9 +5,9 @@ const SpeakerSection = ({ speakers }: { speakers: SpeakersForm[] }) => {
   return (
     <div className="flex h-auto w-full flex-col items-start justify-center gap-[2.4rem]">
       <div className="flex h-auto w-full flex-col items-start justify-center gap-[0.8rem]">
-        <span className="text-xxxl font-medium text-white">Speakers</span>
+        <span className="text-xxxl font-medium text-white">Speakers & Mentors</span>
         <span className="text-[1.6rem] font-regular leading-8 text-gray08">
-          These are the keynote speakers for this event.
+          These are the keynote speakers and mentors for this event.
         </span>
       </div>
       <div className="grid h-auto w-full grid-cols-3 items-start justify-center gap-[2.9rem]">

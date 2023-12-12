@@ -22,7 +22,7 @@ const TitleSection = ({
             width: '3.2rem',
             height: '3.2rem',
             borderRadius: '1.6rem',
-            objectFit: 'cover',
+            objectFit: 'contain',
           }}
           width={1000}
           height={1000}

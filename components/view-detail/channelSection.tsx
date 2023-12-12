@@ -36,7 +36,7 @@ const ChannelSection = ({ telegram }: { telegram: TelegramForm[] }) => {
                       width: '5rem',
                       height: '5rem',
                       borderRadius: '50%',
-                      objectFit: 'cover',
+                      objectFit: 'contain',
                     }}
                     width={1000}
                     height={1000}
