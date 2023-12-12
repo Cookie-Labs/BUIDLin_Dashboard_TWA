@@ -12,6 +12,7 @@ import ChannelSection from '@/components/view-detail/channelSection';
 import InformationSection from '@/components/view-detail/informationSection';
 import ProgramSection from '@/components/view-detail/programSection';
 import SpeakerSection from '@/components/view-detail/speakerSection';
+import OrganizerSection from '@/components/view-detail/organizerSection';
 import SponsorSection from '@/components/view-detail/sponsorSection';
 import NotFound from './not-found';
 import Loading from '../../loading';
@@ -77,6 +78,9 @@ export default function ViewDetailPage({
         )}
         {currentEvent.speakers && (
           <SpeakerSection speakers={currentEvent.speakers} />
+        )}
+        {currentEvent.organizers && (
+          <OrganizerSection organizers={currentEvent.organizers} />
         )}
         {currentEvent.sponsors && (
           <SponsorSection sponsors={currentEvent.sponsors} />

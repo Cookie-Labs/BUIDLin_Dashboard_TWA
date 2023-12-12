@@ -33,6 +33,11 @@ export interface SpeakersForm {
   position: string;
 }
 
+export interface OrganizerForm {
+  imgUrl: string;
+  name: string;
+}
+
 export interface SponsorsForm {
   imgUrl: string;
   name: string;
@@ -79,6 +84,7 @@ export interface EventForm {
   location: LocationForm;
   schedule: ScheduleForm[];
   speakers?: SpeakersForm[];
+  organizers?: OrganizerForm[];
   sponsors?: SponsorsForm[];
   applyForm?: ApplyForm[];
   tickets?: TicketForm[];
