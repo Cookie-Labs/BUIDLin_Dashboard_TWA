@@ -45,7 +45,8 @@ export default function ViewParticipantsPage({
   };
 
   const downloadCSV = (csvData: string, filename: string) => {
-    const blob = new Blob([csvData], { type: 'text/csv;charset=utf-8;' });
+    const bom = new Uint8Array([0xef, 0xbb, 0xbf]);
+    const blob = new Blob([bom, csvData], { type: 'text/csv;charset=utf-8;' });
     const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.setAttribute('download', filename);
