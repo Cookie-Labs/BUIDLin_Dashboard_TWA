@@ -2,7 +2,7 @@
 
 'use client';
 
-import { useMemo, type PropsWithChildren } from 'react';
+import { type PropsWithChildren } from 'react';
 import { SDKProvider, useSDK } from '@tma.js/sdk-react';
 import LoadingSpinner from '@/components/loading-spinner';
 
@@ -13,13 +13,6 @@ import LoadingSpinner from '@/components/loading-spinner';
  */
 function DisplayGate({ children }: PropsWithChildren) {
   const { didInit, components, error } = useSDK();
-  const errorMessage = useMemo<null | string>(() => {
-    if (!error) {
-      return null;
-    }
-
-    return error instanceof Error ? error.message : 'Unknown error';
-  }, [error]);
 
   // There were no calls of SDK's init function. It means, we did not
   // even try to do it.
@@ -36,14 +29,16 @@ function DisplayGate({ children }: PropsWithChildren) {
     return (
       <div className="flex min-h-[100vh] max-w-[100%] flex-col items-center justify-center gap-[2rem] bg-primary p-[1.6rem] pt-[3.2rem]">
         <span className="text-center text-[2rem] font-semiBold text-white">
-          SDK was unable to initialize. Probably, current application is being
-          used not in Telegram Web Apps environment.
+          Please access this service through the Telegram Web App environment.
         </span>
-        <blockquote>
-          <span className="text-center text-[1rem] font-regular text-white">
-            Error: {errorMessage}
-          </span>
-        </blockquote>
+        <button
+          onClick={() => {
+            window.location.href = 'https://t.me/buidlin_bot/dashboard';
+          }}
+          className="cursor-pointer text-[2rem] font-regular text-blue07 underline duration-200 hover:scale-110 active:scale-100"
+        >
+          Open Telegram Web App
+        </button>
       </div>
     );
   }
