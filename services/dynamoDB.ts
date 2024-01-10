@@ -269,7 +269,7 @@ export const addUserParticipated = async ({
       id: userTelegramId,
     },
     UpdateExpression:
-      'SET participatedEvents = list_append(participatedEvents, :newEvent)',
+      'SET participatedEvents = list_append(:newEvent, participatedEvents)',
     ExpressionAttributeValues: {
       ':newEvent': [participatedEvent],
     },
@@ -319,7 +319,7 @@ export const createNewEvent = async ({
       id: eventData.hostTelegramId[0],
     },
     UpdateExpression:
-      'SET createdEvents = list_append(createdEvents, :newEvent)',
+      'SET createdEvents = list_append(:newEvent, createdEvents)',
     ExpressionAttributeValues: {
       ':newEvent': [eventData.id],
     },
