@@ -13,7 +13,7 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
   return (
     <div className="grid min-h-[17rem] w-full grid-cols-2 items-center justify-center gap-[1rem] rounded-[2rem] bg-primary px-[1.5rem] py-[1rem] shadow-[rgba(125,_100,_255,_0.5)_0_8px_20px_0px]">
       <div className="flex h-auto w-full flex-col items-start justify-center gap-[1rem]">
-        <div className="aspect-[16/9] w-full rounded-[1.6rem] border border-solid border-secondary">
+        <div className="aspect-[16/9] w-full overflow-hidden rounded-[1.6rem] border border-solid border-secondary">
           <Image
             src={eventItem.posterImgUrl}
             alt="event image url"
@@ -66,11 +66,11 @@ const Card = ({ eventItem, type }: { eventItem: Event; type: string }) => {
           <button
             className="cursor-pointer rounded-[0.5rem] bg-secondary px-[1.5rem] py-[1rem] text-[1.4rem] font-bold text-white duration-200 hover:scale-110 hover:bg-gray13 active:scale-100"
             onClick={() => {
-              return popup.open({
-                title: 'Coming Soon',
-                message: 'It will be created soon!',
-                buttons: [{ id: 'closePopup', type: 'close' }],
-              });
+                return popup.open({
+                  title: 'Coming Soon',
+                  message: 'It will be created soon!',
+                  buttons: [{ id: 'closePopup', type: 'close' }],
+                });
             }}
           >
             Ticket QRcode
