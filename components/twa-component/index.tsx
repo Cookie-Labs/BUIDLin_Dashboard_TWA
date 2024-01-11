@@ -4,15 +4,17 @@ import { useEffect } from 'react';
 import { usePathname, useRouter } from 'next/navigation';
 import {
   useBackButton,
+  useClosingBehaviour,
   useViewport,
   useWebApp,
   useInitData,
 } from '@tma.js/sdk-react';
 
 export function BackButton() {
-  const initData = useInitData();
   const router = useRouter();
   const pathname = usePathname();
+
+  const initData = useInitData();
   const backButton = useBackButton();
 
   const handleBackButtonClick = () => {
@@ -49,10 +51,12 @@ export function BackButton() {
 export function ReadyAndExpand() {
   const webapp = useWebApp();
   const viewport = useViewport();
+  const closingBehavior = useClosingBehaviour();
 
   useEffect(() => {
     webapp.ready();
     viewport.expand();
+    closingBehavior.enableConfirmation();
   }, []);
 
   return null;
